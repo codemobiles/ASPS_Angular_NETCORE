@@ -1,0 +1,51 @@
+thead>tr>th:nth-child(1){
+  width: 80px;
+}
+thead>tr>th:nth-child(3),
+thead>tr>th:nth-child(4)  {
+  width: 120px;
+}
+
+thead>tr>th:nth-child(5) {
+  width: 100px;
+}
+
+.edit_product,
+.delete_product {
+  width: 20px;
+  cursor: pointer;
+}
+
+.delete_product{
+  margin-left: 10px;
+}
+
+.product_image {
+  max-width: 50px;
+  margin-right: 12px;
+}
+
+.product_name {
+  width: 70px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.content-header{
+  padding-bottom: 0;
+}
+
+table td{
+  vertical-align: unset;
+}
+
+.btn-add{
+  width: 80px;
+}
+
+.card-body-header{
+  margin-bottom: 20px;
+}
+
+

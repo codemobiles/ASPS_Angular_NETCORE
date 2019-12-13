@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 
 
 // meta data
@@ -8,15 +9,20 @@ import { NgForm } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+
+
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  // DI
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   login(formValue: NgForm){
-    alert(JSON.stringify(formValue.value))
+   // alert(JSON.stringify(formValue.value))
+    this.router.navigate(["/stock"])
   }
 
 }
