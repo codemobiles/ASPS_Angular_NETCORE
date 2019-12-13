@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { $ } from 'protractor';
 
 
 // meta data
@@ -18,7 +19,10 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+   
   }
+
+
 
   login(formValue: NgForm){
    // alert(JSON.stringify(formValue.value))

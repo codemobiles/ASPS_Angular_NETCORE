@@ -1,0 +1,20 @@
+.btn-app {
+  margin: 0;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+}
+
+a:not([href]):not([tabindex]):hover  {
+  background-color: #ff8801;
+  color:white;
+}
+
+.pic-upload{
+ display: none;
+}
+
+.img-preview{
+  width: 100%;
+  height: auto;
+}

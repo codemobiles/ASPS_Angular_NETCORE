@@ -7,7 +7,7 @@
             <span class="info-box-icon bg-info"><i class="fas fa-box-open"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Stock</span>
-              <span class="info-box-number">XXXXX</span>
+              <span class="info-box-number">{{ mProductArray.length }}</span>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
             <span class="info-box-icon bg-maroon"><i class="fas fa-minus-circle"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Sold out</span>
-              <span class="info-box-number">XXXX</span>
+              <span class="info-box-number">{{ getOutOfStock() }}</span>
             </div>
           </div>
         </div>
@@ -37,10 +37,10 @@
       <div class="card-body">
            <div class="row card-body-header">
                 <div class="col-5">
-                    <input class="form-control input-lg" placeholder="Enter search keyword">
+                    <input (keyup)="searchTextChanged.next($event.target.value)" class="form-control input-lg" placeholder="Enter search keyword">
                   </div>
                   <div class="col-7">
-                    <a class="btn btn-success float-right btn-add">เพิ่ม</a>
+                    <a [routerLink]="['/stock/create']" class="btn btn-success float-right btn-add">เพิ่ม</a>
                   </div>
             </div>
         <table class="table table-bordered table-striped table-hover">
@@ -54,8 +54,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="text-center">XXXX</td>
+            <tr *ngFor="let item of mProductArray">
+              <td class="text-center">{{ item }}</td>
               <td>
                 <img src="assets/images/no_photo.jpg" class="product_image">
                 <strong class="product_name">XXXX</strong>
@@ -63,8 +63,8 @@
               <td>฿XXXXXX</td>
               <td>XXXXX PCS.</td>
               <td class="text-center">
-                <img src="assets/images/ic_edit.png" class="edit_product">
-                <img src="assets/images/ic_delete.png" class="delete_product">
+                <img src="assets/images/ic_edit.png" (click)="editProduct(191)" class="edit_product">
+                <img src="assets/images/ic_delete.png" (click)="deleteProduct(191)" class="delete_product">
               </td>
             </tr>
           </tbody>

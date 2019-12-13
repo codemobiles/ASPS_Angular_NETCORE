@@ -22,6 +22,7 @@
     "fire": "^0.55.1",
     "rxjs": "~6.4.0",
     "serialize-javascript": "^2.1.2",
+    "sweetalert2": "^9.5.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

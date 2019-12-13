@@ -1,1 +1,64 @@
-<p>stock-create works!</p>
+<div class="content-wrapper">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>Create Product</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-primary">
+            <form role="form">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Name</label>
+                      <input type="text" class="form-control" name="Name">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Price</label>
+                      <input type="number" class="form-control" name="price">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Stock</label>
+                      <input type="number" class="form-control" name="stock">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary float-right">Submit</button>
+                <button class="btn btn-default">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card card-primary">
+            <div class="card-body">
+              <div class="form-group">
+                <input id="upload" class="pic-upload" accept="image/*" type="file">
+                <a class="btn btn-app btn-block">
+                  <i class="far fa-image"></i>Upload image
+                </a>
+              </div>
+              <img class="img-preview border"  alt="Photo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

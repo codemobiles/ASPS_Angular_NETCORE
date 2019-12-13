@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'stock', component: StockHomeComponent},
   {path: 'stock/create', component: StockCreateComponent},
   {path: 'stock/edit/:id', component: StockEditComponent},
-  
+
   {path: '**', redirectTo: 'login'},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
 ];
