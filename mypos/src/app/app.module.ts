@@ -9,7 +9,9 @@ import { RegisterComponent } from './components/authen/register/register.compone
 import { ShopHomeComponent } from './components/shop/shop-home/shop-home.component';
 import { ShopCreateComponent } from './components/shop/shop-create/shop-create.component';
 import { ShopEditComponent } from './components/shop/shop-edit/shop-edit.component';
-
+import { MenuComponent } from './components/shared/menu/menu.component';
+import { HeaderComponent } from './components/shared/header/header.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,9 @@ import { ShopEditComponent } from './components/shop/shop-edit/shop-edit.compone
     ShopHomeComponent,
     ShopCreateComponent,
     ShopEditComponent,
+    MenuComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
