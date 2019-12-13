@@ -6,9 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/authen/login/login.component';
 import { RegisterComponent } from './components/authen/register/register.component';
-import { ShopHomeComponent } from './components/shop/shop-home/shop-home.component';
-import { ShopCreateComponent } from './components/shop/shop-create/shop-create.component';
-import { ShopEditComponent } from './components/shop/shop-edit/shop-edit.component';
+import { StockHomeComponent } from './components/stock/stock-home/stock-home.component';
+import { StockCreateComponent } from './components/stock/stock-create/stock-create.component';
+import { StockEditComponent } from './components/stock/stock-edit/stock-edit.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
@@ -18,9 +18,9 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ShopHomeComponent,
-    ShopCreateComponent,
-    ShopEditComponent,
+    StockHomeComponent,
+    StockCreateComponent,
+    StockEditComponent,
     MenuComponent,
     HeaderComponent,
     FooterComponent,
