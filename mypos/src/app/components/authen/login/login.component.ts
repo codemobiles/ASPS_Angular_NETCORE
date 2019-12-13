@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 
-// meta data  
+// meta data
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +13,10 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  login(formValue: NgForm){
+    alert(JSON.stringify(formValue.value))
   }
 
 }

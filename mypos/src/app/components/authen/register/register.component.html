@@ -1,1 +1,47 @@
-<p>register works!</p>
+<div class="login-page">
+  <div class="login-box">
+    <div class="card">
+      <div class="card-body login-card-body">
+        <div class="login-card-body-header">
+          <img src="assets/images/banner.jpg" />
+        </div>
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+          <div class="input-group mb-3">
+            <input ngModel name="username" type="email" class="form-control" placeholder="Email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input ngModel name="password" type="password" class="form-control" placeholder="Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3 confirm-password">
+            <input ngModel name="confirm_password"  type="password" class="form-control" placeholder="Confirm Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="validatePassword(registerForm.value)" class="alert_confirm_password">
+            Passwords don't match.
+          </div>
+          <div class="form-group select-position">
+            <select ngModel name="position" class="form-control">
+              <option value="" disabled selected>Select a position</option>
+              <option *ngFor="let item of mPosition" value="{{item}}">{{ item }}</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
+          <button type="button" class="btn btn-block btn-outline-secondary">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>

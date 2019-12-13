@@ -1,0 +1,13 @@
+.login-page{
+  min-height: 512.391px;
+}
+
+.login-card-body-header {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+}
+
+.login-card-body-header > img {
+  max-width: 250px;
+}
