@@ -1,3 +1,14 @@
-<app-header></app-header>
-<app-menu></app-menu>
-<app-footer></app-footer>
+
+<ng-container *ngIf="true; then shop; else login">ignore content</ng-container>
+<ng-template #login>
+  <app-login></app-login>
+</ng-template>
+<ng-template #shop>
+  <app-header></app-header>
+  <app-menu></app-menu>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</ng-template>
+
+
+
