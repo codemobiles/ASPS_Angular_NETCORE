@@ -1,7 +1,9 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using mypos_api.Database;
 
 namespace mypos_api.Controllers
 {
@@ -12,9 +14,13 @@ namespace mypos_api.Controllers
     {
         ILogger<AuthController> _logger;
 
-        public AuthController(ILogger<AuthController> logger)
+        public AuthController(ILogger<AuthController> logger, DatabaseContext context)
         {
             _logger = logger;
+
+            var result = context.Products.ToList();
+
+            Console.WriteLine("Hello lotto " + result.Count);
         }
 
         // localhost:../api/auth
