@@ -1,1 +1,66 @@
-<p>stock-edit works!</p>
+<div class="content-wrapper" *ngIf="mProduct != null">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <h1>Edit Product</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-primary">
+            <form role="form">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Name</label>
+                      <input [(ngModel)]="mProduct.name" type="text" class="form-control" name="Name">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Price</label>
+                      <input [(ngModel)]="mProduct.price" type="number" class="form-control" name="price">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Stock</label>
+                      <input [(ngModel)]="mProduct.stock" type="number" class="form-control" name="stock">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button (click)="onSubmit()" type="submit" class="btn btn-primary float-right">Submit</button>
+                <button (click)="onCancel()" class="btn btn-default">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card card-primary">
+            <div class="card-body">
+              <div class="form-group">
+                <input (change)="onUploadImage($event)" id="upload" class="pic-upload" accept="image/*" type="file">
+                <a onclick="document.getElementById('upload').click(); return false" class="btn btn-app btn-block">
+                  <i class="far fa-image"></i>Upload image
+                </a>
+              </div>
+              <img *ngIf="mProduct.image !== null && mProduct.image !== ''" src="{{ mProduct.image }}" class="img-preview border" alt="Photo">
+              <img *ngIf="mProduct === null || mProduct.image === ''" src="assets/images/no_photo.jpg" class="img-preview border" alt="Photo">
+              <img *ngIf="mImageSrc != null" src="{{ mImageSrc }}" class="img-preview border" alt="Photo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

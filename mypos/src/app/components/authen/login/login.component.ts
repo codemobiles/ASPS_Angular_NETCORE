@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { $ } from 'protractor';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 // meta data
@@ -15,17 +16,16 @@ import { $ } from 'protractor';
 
 export class LoginComponent implements OnInit {
 
-  // DI
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-   
+    if (this.authService.isLogin()) {
+      this.router.navigate(["/stock"])
+    }
   }
 
-
-
-  login(formValue: NgForm){
-   // alert(JSON.stringify(formValue.value))
+  login() {
+    // alert(JSON.stringify(formValue.value))
     this.router.navigate(["/stock"])
   }
 

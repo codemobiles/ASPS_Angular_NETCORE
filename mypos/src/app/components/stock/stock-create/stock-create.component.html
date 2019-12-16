@@ -19,7 +19,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Name</label>
-                      <input type="text" class="form-control" name="Name">
+                      <input [(ngModel)]="mProduct.name" type="text" class="form-control" name="Name">
                     </div>
                   </div>
                 </div>
@@ -27,20 +27,20 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Price</label>
-                      <input type="number" class="form-control" name="price">
+                      <input [(ngModel)]="mProduct.price" type="number" class="form-control" name="price">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Stock</label>
-                      <input type="number" class="form-control" name="stock">
+                      <input [(ngModel)]="mProduct.stock" type="number" class="form-control" name="stock">
                     </div>
                   </div>
                 </div>
               </div>
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary float-right">Submit</button>
-                <button class="btn btn-default">Cancel</button>
+                <button (click)="onSubmit()" type="submit" class="btn btn-primary float-right">Submit</button>
+                <button (click)="onCancel()" class="btn btn-default">Cancel</button>
               </div>
             </form>
           </div>
@@ -49,12 +49,12 @@
           <div class="card card-primary">
             <div class="card-body">
               <div class="form-group">
-                <input id="upload" class="pic-upload" accept="image/*" type="file">
-                <a class="btn btn-app btn-block">
+                <input (change)="onUploadImage($event)" id="upload" class="pic-upload" accept="image/*" type="file">
+                <a onclick="document.getElementById('upload').click(); return false" class="btn btn-app btn-block">
                   <i class="far fa-image"></i>Upload image
                 </a>
               </div>
-              <img class="img-preview border"  alt="Photo">
+              <img *ngIf="mImageSrc != null" src="{{ mImageSrc }}" class="img-preview border" alt="Photo">
             </div>
           </div>
         </div>
