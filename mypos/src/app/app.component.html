@@ -1,7 +1,7 @@
 
 <ng-container *ngIf="authService.isLogin(); then shop; else login">ignore content</ng-container>
 <ng-template #login>
-  <app-login></app-login>
+  <router-outlet></router-outlet>
 </ng-template>
 <ng-template #shop>
   <app-header></app-header>

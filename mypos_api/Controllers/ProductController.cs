@@ -9,7 +9,7 @@ using mypos_api.Services;
 
 namespace mypos_api.Controllers
 {
-
+    [Authorize]   
     [ApiController]
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
@@ -47,6 +47,7 @@ namespace mypos_api.Controllers
             }
         }
 
+        // localhost.../api/product/{id}
         [HttpGet("{id}")]
         public IActionResult GetProduct(int id)
         {
@@ -70,7 +71,7 @@ namespace mypos_api.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost]                      
         public async Task<IActionResult> AddProduct([FromForm] Products model)
         {
             try
@@ -127,6 +128,7 @@ namespace mypos_api.Controllers
         [HttpGet("images/{name}")]
         public IActionResult ProductImage(string name)
         {
+            //return File($"~/images/{name}", "image/jpg", "xxx.jpg");
             return File($"~/images/{name}", "image/jpg");
         }
     }

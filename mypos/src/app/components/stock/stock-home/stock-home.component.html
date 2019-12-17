@@ -1,5 +1,5 @@
 <div class="content-wrapper">
-  <section class="content-header">
+  <section class="content-header" *ngIf="mProductArray !== undefined">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-4 col-xs-12">
@@ -55,13 +55,14 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of mProductArray">
-              <td class="text-center">{{ item }}</td>
+              <td class="text-center">{{ item.productId }}</td>
               <td>
-                <img src="assets/images/no_photo.jpg" class="product_image">
-                <strong class="product_name">XXXX</strong>
+                <img *ngIf="item.image == ''" src="assets/images/no_photo.jpg" class="product_image">
+                <img *ngIf="item.image != ''" src="{{item.image}}" class="product_image">
+                <strong class="product_name"> {{ item.name }}</strong>
               </td>
-              <td>฿XXXXXX</td>
-              <td>XXXXX PCS.</td>
+              <td>฿ {{ item.price }}</td>
+              <td>{{ item.stock }} PCS.</td>
               <td class="text-center">
                 <img src="assets/images/ic_edit.png" (click)="editProduct(191)" class="edit_product">
                 <img src="assets/images/ic_delete.png" (click)="deleteProduct(191)" class="delete_product">

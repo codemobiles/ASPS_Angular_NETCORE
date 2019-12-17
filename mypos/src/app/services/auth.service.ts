@@ -11,7 +11,7 @@ export class AuthService {
 
   isLogin() {
     var token = localStorage.getItem(environment.keyLocalAuthenInfo)
-    return !(token != null)
+    return (token != null)
   }
 
   login(token: string) {

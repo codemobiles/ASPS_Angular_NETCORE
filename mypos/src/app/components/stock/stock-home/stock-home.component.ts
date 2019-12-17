@@ -3,6 +3,8 @@ import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators'
+import { NetworkService } from 'src/app/services/network.service';
+import { Product } from 'src/app/models/product.model';
 
 @Component({
   selector: 'app-stock-home',
@@ -11,24 +13,49 @@ import { debounceTime } from 'rxjs/operators'
 })
 export class StockHomeComponent implements OnInit {
 
-  mProductArray = [111, 444, 556, 77];
+  mProductArray: Product[]
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private networkService: NetworkService) { }
 
   searchTextChanged = new Subject<String>();
+
+  feedData() {
+    this.networkService.getAllProduct().subscribe(
+      data => {
+        this.mProductArray = data.result.map(
+          item => {
+            var image = item.image
+            if (image != '') {
+              item.image = this.networkService.productImageURL + "/" + image
+            }
+            return item
+          }
+        );
+      },
+      error => {
+        alert(JSON.stringify(error))
+      }
+    );
+  }
 
   ngOnInit() {
     this.searchTextChanged.pipe(
       debounceTime(1000)
     ).subscribe(term => this.onSearch(term));
+
+    this.feedData();
   }
 
   onSearch(text: String) {
     console.log(text);
   }
 
-  getOutOfStock() {
-    return 123;
+  getOutOfStock(): number {
+    return this.mProductArray.filter(
+      item => {
+        return item.stock <= 0;
+      }
+    ).length;
   }
 
   deleteProduct(id: Number) {

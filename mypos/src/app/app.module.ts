@@ -13,6 +13,9 @@ import { MenuComponent } from './components/shared/menu/menu.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { JwtInterceptor } from './services/jwt.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,9 +31,12 @@ import { FooterComponent } from './components/shared/footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
