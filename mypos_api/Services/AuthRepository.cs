@@ -31,9 +31,9 @@ namespace mypos_api.Services
 
             if (result != null)
             {
-                if (VerifyPassword(result.Password, user.Password)) ;
+                if (VerifyPassword(result.Password, user.Password))
                 {
-                    token = "safkjfasjhkfsa";
+                    token = BuildToken(result);
                 }
             }
 
@@ -95,7 +95,7 @@ namespace mypos_api.Services
                 new Claim("username", user.Username),
                 new Claim(ClaimTypes.Role, user.Position)
             };
-
+            // access token , refresh token oauth2
             var expires = DateTime.Now.AddDays(Convert.ToDouble(configuration["Jwt:Expire"]));
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
