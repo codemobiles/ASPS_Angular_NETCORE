@@ -84,4 +84,16 @@ export class ShopHomeComponent implements OnInit {
     );
   }
 
+  paymentSuccess(){
+    this.mOrderArray = new Array<Product>();
+    this.mProductArray = new Array<Product>();
+    this.mTotalPrice = 0;
+    this.mIsPaymentShow = false;
+
+    this.feedData();
+  }
+
+  printName(nickName: String){
+    alert(nickName);
+  }
 }

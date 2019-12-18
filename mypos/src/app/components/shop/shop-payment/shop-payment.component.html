@@ -1,1 +1,31 @@
-<p>shop-payment works!</p>
+<div class="card">
+  <section class="card-body">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex flex-column col-6 pl-0">
+        <label>Change</label>
+        <input value="฿ {{mChange | number : '1.2-2'}}" class="form-control change" disabled />
+      </div>
+      <div class="d-flex flex-column col-6 pr-0">
+        <label>Paid</label>
+        <input type="text" class="form-control" (ngModelChange)="givenNumber=$event"
+          [ngModel]=" givenNumber | number: '1.2-2' | custom" disabled/>
+      </div>
+    </div>
+    <div class="d-flex justify-content-around mt-4">
+      <button type="button" class="btn btn-lg btn-outline-primary btn-given" (click)="onClickGiven(1000)">฿1000</button>
+      <button type="button" class="btn btn-lg btn-outline-primary btn-given" (click)="onClickGiven(500)">฿500</button>
+      <button type="button" class="btn btn-lg btn-outline-primary btn-given" (click)="onClickGiven(100)">฿100</button>
+    </div>
+    <div class="d-flex justify-content-around mt-2">
+      <button type="button" class="btn btn-lg btn-outline-primary btn-given" (click)="onClickGiven(50)">฿50</button>
+      <button type="button" class="btn btn-lg btn-outline-primary btn-given" (click)="onClickGiven(20)">฿20</button>
+      <button type="button" class="btn btn-lg btn-outline-primary btn-given" (click)="onClickGiven(10)">฿10</button>
+    </div>
+    <div class="d-flex justify-content-around mt-4">
+      <button type="button" class="btn btn-lg btn-default btn-payment" (click)="onClickReset()">CLEAR</button>
+      <button type="button" class="btn btn-lg bg-gradient-info btn-payment" (click)="onClickExact()">EXACT</button>
+      <button *ngIf="isPaidEnough" type="button" class="btn btn-lg bg-gradient-success btn-payment"
+        (click)="onClickSubmit()">SUBMIT</button>
+    </div>
+  </section>
+</div>

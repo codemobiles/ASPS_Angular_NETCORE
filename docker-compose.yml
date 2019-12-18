@@ -1,0 +1,31 @@
+version: "3.5"
+services:
+  database:
+    image: "mcr.microsoft.com/mssql/server:2017-CU14-ubuntu"
+    container_name: cm_database
+    environment:
+      SA_PASSWORD: "Tel1234!"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1150:1433"
+    network_mode: bridge
+  backend:
+    build: mypos_api/  
+    image: 'backend'
+    container_name: backend
+    ports:
+      - "1151:80"
+    links:
+      - "database:conn_database"
+    network_mode: bridge
+    depends_on:
+      - database
+  frontend:
+    build: mypos/
+    image: 'frontend'
+    container_name: frontend
+    ports:
+      - "1152:80"
+    network_mode: bridge
+    depends_on:
+      - backend

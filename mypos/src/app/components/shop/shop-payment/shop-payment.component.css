@@ -1,0 +1,28 @@
+.form-control {
+  font-size: 30px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.change{
+  color: #f012be;
+}
+
+.btn-given,
+.btn-payment{
+  width: 100%;
+}
+
+.btn-given:nth-child(1),
+.btn-payment:nth-child(1){
+  margin-right: 6px;
+}
+
+.btn-given:nth-child(3),
+.btn-payment:nth-child(3){
+  margin-left: 6px;
+}
+
+.form-control:disabled{
+  background-color: white;
+}

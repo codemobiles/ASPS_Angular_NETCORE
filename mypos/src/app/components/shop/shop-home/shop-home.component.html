@@ -89,7 +89,7 @@
             </div>
           </ng-template>
           <ng-template #payment>
-            <app-shop-payment></app-shop-payment>
+            <app-shop-payment [total]="mTotalPrice" (submit)="paymentSuccess()" (nickname)="printName($event)"></app-shop-payment>
           </ng-template>
         </div>
       </div>

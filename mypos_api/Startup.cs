@@ -57,7 +57,7 @@ namespace mypos_api
             {
                 options.AddPolicy("AllowSpecificOrigins", builder =>
                 {
-                    builder.WithOrigins("http://example.com", "http://localhost:4200")
+                    builder.WithOrigins("http://example.com", "http://localhost:4200", "http://localhost:32523")
                     .AllowAnyHeader()
                     .AllowAnyMethod();
                             //.WithMethods("GET", "POST", "HEAD");
