@@ -15,6 +15,8 @@ import { FooterComponent } from './components/shared/footer/footer.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { JwtInterceptor } from './services/jwt.interceptor';
+import { ShopHomeComponent } from './components/shop/shop-home/shop-home.component';
+import { ShopPaymentComponent } from './components/shop/shop-payment/shop-payment.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { JwtInterceptor } from './services/jwt.interceptor';
     MenuComponent,
     HeaderComponent,
     FooterComponent,
+    ShopHomeComponent,
+    ShopPaymentComponent,
   ],
   imports: [
     BrowserModule,
