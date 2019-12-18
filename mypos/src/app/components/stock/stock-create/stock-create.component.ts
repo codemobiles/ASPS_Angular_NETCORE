@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { Location } from '@angular/common';
+import { NetworkService } from 'src/app/services/network.service';
 
 @Component({
   selector: 'app-stock-create',
@@ -13,7 +14,7 @@ export class StockCreateComponent implements OnInit {
   mImageSrc: string | ArrayBuffer = null
 
   // Don't forget import { Location }
-  constructor(private location: Location) {}
+  constructor(private location: Location, private networkService: NetworkService) { }
 
   ngOnInit() {
     this.mProduct.price = 0;
@@ -21,12 +22,20 @@ export class StockCreateComponent implements OnInit {
     this.mProduct.stock = 0;
   }
 
-  onCancel(){
+  onCancel() {
     this.location.back();
   }
 
-  onSubmit(){
-    alert(JSON.stringify(this.mProduct));
+  onSubmit() {
+    this.networkService.addProduct(this.mProduct).subscribe(
+      data => {
+        alert(data.message);
+        this.location.back();
+      },
+      error => {
+        console.log(JSON.stringify(error));
+      }
+    );
   }
 
   onUploadImage(event) {

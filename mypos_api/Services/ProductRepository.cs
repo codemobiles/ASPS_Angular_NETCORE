@@ -35,6 +35,8 @@ namespace mypos_api.Services
             }
 
             databaseContext.Add(product);
+            databaseContext.SaveChanges();
+
             return product;
         }
 
@@ -44,6 +46,8 @@ namespace mypos_api.Services
             if (result != null)
             {
                 databaseContext.Remove(result);
+                databaseContext.SaveChanges();
+
                 return true;
             }
             return false;
@@ -65,6 +69,7 @@ namespace mypos_api.Services
                 result.Stock = product.Stock;
 
                 databaseContext.Update(result);
+                databaseContext.SaveChanges();
             }
             return result;
         }

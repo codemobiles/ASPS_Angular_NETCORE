@@ -25,7 +25,7 @@ export class StockHomeComponent implements OnInit {
         this.mProductArray = data.result.map(
           item => {
             var image = item.image
-            if (image != '') {
+            if (image !== null) {
               item.image = this.networkService.productImageURL + "/" + image
             }
             return item
@@ -58,7 +58,7 @@ export class StockHomeComponent implements OnInit {
     ).length;
   }
 
-  deleteProduct(id: Number) {
+  deleteProduct(id: number) {
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -69,11 +69,20 @@ export class StockHomeComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.value) {
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
+        this.networkService.deleteProduct(id).subscribe(
+          data => {
+            Swal.fire(
+              'Deleted!',
+              data.message,
+              'success'
+            );
+
+            this.feedData();
+          },
+          error => {
+            alert(JSON.stringify(error))
+          }
+        );
       }
     })
   }
